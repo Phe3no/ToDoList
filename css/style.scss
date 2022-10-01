@@ -1,0 +1,109 @@
+@import "variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: $black;
+}
+
+#main-area {
+  width: 96%;
+  margin: 0 auto;
+  & h1 {
+    color: $white;
+    padding: 30px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5em;
+  }
+  & div {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    & input {
+      width: 95%;
+      background-color: $white;
+      padding: 8px 5px;
+      border-radius: 5px;
+      outline-color: $phe3no;
+    }
+    & button {
+      width: 95%;
+      background-color: $phe3no;
+      color: $white;
+      padding: 10px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  & ul {
+    list-style-type: none;
+    padding: 30px 0;
+    & li {
+      background-color: $white;
+      padding: 20px 10px;
+      border-top: 1px solid $phe3no;
+      border-left: 1px solid $phe3no;
+      border-right: 1px solid $phe3no;
+      display: grid;
+      grid-template-columns: 24px 10fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "checkbox textinput trashcan";
+      justify-content: center;
+      align-items: center;
+      &:last-child {
+        border-bottom: 1px solid $phe3no;
+      }
+      & .todo-check-box {
+        grid-area: checkbox;
+        height: 80%;
+        accent-color: $phe3no;
+        padding: 8px;
+        cursor: pointer;
+      }
+      & .todo-text-input {
+        grid-area: textinput;
+        background-color: $white;
+        width: 100%;
+        padding: 8px 15px;
+        border: none;
+        outline-color: $phe3no;
+      }
+      & .line-through {
+        text-decoration: line-through;
+        text-decoration-color: $phe3no;
+      }
+      & .fa {
+        grid-area: trashcan;
+        text-align: center;
+        padding-top: 2px;
+        background-color: $white;
+        cursor: pointer;
+      }
+      & .fa-trash-o {
+        color: $phe3no;
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #main-area {
+    width: 70%;
+    & div {
+      & input {
+        width: 70%;
+        margin-right: 12px;
+      }
+      & button {
+        width: auto;
+      }
+    }
+    & ul {
+      & li {
+        grid-template-columns: 1fr 10fr 1fr;
+      }
+    }
+  }
+}
